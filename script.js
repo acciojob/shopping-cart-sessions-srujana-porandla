@@ -6,7 +6,7 @@ const products = [
   { id: 2, name: "Product 2", price: 20 },
   { id: 3, name: "Product 3", price: 30 },
   { id: 4, name: "Product 4", price: 40 },
-  { id: 5, name: "Product 5", price: 50 },
+  { id: 5, name: "Product 5", price: 50 }
 ];
 
 // DOM elements
@@ -26,14 +26,14 @@ function renderProducts() {
 // Render cart list
 function renderCart() {
 	const cart = getCart();
-  cartList.innerHTML = '';
-  cart.forEach((product) => {
+    cartList.innerHTML = '';
+    cart.forEach((product) => {
     const li = document.createElement("li");
     li.innerHTML = `${product.name} - $${product.price} <button class="remove-from-cart-btn" data-id="${product.id}">Remove</button>`;
     cartList.appendChild(li);
   });
 	const removeButtons = document.querySelectorAll('.remove-from-cart-btn');
-  removeButtons.forEach(button => {
+    removeButtons.forEach(button => {
     button.addEventListener('click', () => {
       removeFromCart(button.getAttribute('data-id'));
     });
