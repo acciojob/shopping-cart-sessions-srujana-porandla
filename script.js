@@ -55,8 +55,8 @@ function addToCart(productId) {
 
 // Remove item from cart
 function removeFromCart(productId) {
-	 let cart = getCart();
-  cart = cart.filter(product => product.id != productId);
+	  let cart = getCart();
+  cart.splice(index, 1);
   sessionStorage.setItem('cart', JSON.stringify(cart));
   renderCart();
 
