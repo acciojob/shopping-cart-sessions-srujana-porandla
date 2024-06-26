@@ -55,10 +55,13 @@ function addToCart(productId) {
 
 // Remove item from cart
 function removeFromCart(productId) {
-	  let cart = getCart();
-  cart.splice(index, 1);
-  sessionStorage.setItem('cart', JSON.stringify(cart));
-  renderCart();
+	   let cart = getCart();
+     const index = cart.findIndex(product => product.id == productId);
+    if (index > -1) {
+    cart.splice(index, 1);
+    sessionStorage.setItem('cart', JSON.stringify(cart));
+    renderCart();
+  }
 
 }
 
